@@ -4,12 +4,11 @@
 
 int fibonacci_iterative(int n) {
     if (n <= 0) return 0;
-    if (n == 1) return 0;
-    if (n == 2) return 1;
+    if (n == 1) return 1;
     int fib_num1 = 0;
     int fib_num2 = 1;
     int next;
-    for (int i = 2; i <= n; i++) {
+    for (int i = 2; i < n; i++) {
         next = fib_num1 + fib_num2;
         fib_num1 = fib_num2;
         fib_num2 = next;
@@ -53,7 +52,7 @@ int main(int argc, char *argv[]) {
     }
     fclose(file);
 
-    int n = num + file_num;
+    int n = num + file_num; // calculation off by one!
     int result;
 
     if (method == 'i') {
